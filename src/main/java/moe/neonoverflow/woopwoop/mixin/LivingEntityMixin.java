@@ -1,8 +1,7 @@
 package moe.neonoverflow.woopwoop.mixin;
 
-import moe.neonoverflow.woopwoop.PullUpPlayer;
-import net.fabricmc.loader.impl.util.log.Log;
-import net.fabricmc.loader.impl.util.log.LogCategory;
+import moe.neonoverflow.woopwoop.WarningPlayer;
+import moe.neonoverflow.woopwoop.config.WoopWoopConfigurator;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffect;
@@ -24,8 +23,8 @@ public abstract class LivingEntityMixin extends EntityMixin {
     private void tickFallFlying(CallbackInfo info) {
         if(!this.hasVehicle() && !this.hasStatusEffect(StatusEffects.LEVITATION) && !this.onGround && this.getFlag(7)) {
             ItemStack chestEquipment = this.getEquippedStack(EquipmentSlot.CHEST);
-            if(chestEquipment.getDamage() > 20 && chestEquipment.isOf(Items.ELYTRA) && !PullUpPlayer.isPlaying()) {
-                PullUpPlayer.play();
+            if(chestEquipment.getMaxDamage() - chestEquipment.getDamage() <= WoopWoopConfigurator.CONFIG.triggerDurability && chestEquipment.isOf(Items.ELYTRA) && !WarningPlayer.isPlaying()) {
+                WarningPlayer.play();
             }
         }
     }
