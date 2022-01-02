@@ -1,0 +1,12 @@
+{
+  "required": true,
+  "package": "moe.neonoverflow.woopwoop.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "client": [
+    "EntityMixin",
+    "LivingEntityMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

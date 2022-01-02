@@ -1,0 +1,11 @@
+{
+   "pullup": {
+     "subtitle": "subtitles.woopwoop.pullup",
+     "sounds": [
+       {
+         "name": "woopwoop:pullup",
+         "stream": true
+       }
+     ]
+   }
+}
